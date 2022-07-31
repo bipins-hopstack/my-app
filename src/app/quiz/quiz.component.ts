@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ScoreService } from '../score.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+  [x: string]: any;
 
  
  
@@ -16,7 +17,7 @@ export class QuizComponent implements OnInit {
   
 
   
-  constructor (private ts:ScoreService,private http:HttpClient) {
+  constructor (private ts:ScoreService,private http:HttpClient,private router: Router) {
     this.loadpost();
      this.ts.score=this.score;
       }
@@ -63,7 +64,7 @@ if(e.target.value==this.quizs[this.currentQuestion].correctanswer){
 //Submit Quiz
 submitQuiz(){
 if(confirm("You want to end the quiz ?")){
-
+  this.router.navigateByUrl('/result');
 }
 }
    title = 'my-app';
