@@ -1,0 +1,35 @@
+<div><h2>SCORE {{score}}</h2></div>    
+       <div class="container">
+        
+        <p>{{currentQuestion+1}} )<span class="qnumber"></span> {{ quizs[currentQuestion].question|uppercase }}</p>
+          <div id="{{currentQuestion+1}}" (click)="answer($event)">
+          <div class="form-check">
+              <input  type="radio" class="form-check-input" id="radio1" name="optradio" value="1" >{{ quizs[currentQuestion].answers.toString().split(',')[0]}}
+              <label class="form-check-label" for="radio1"></label>
+          </div>
+          <div class="form-check" >
+              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="2">{{ quizs[currentQuestion].answers.toString().split(',')[1]}}
+              <label class="form-check-label" for="radio2"></label>
+          </div>
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="radio3" name="optradio" value="3">{{ quizs[currentQuestion].answers.toString().split(',')[2]}}
+              <label class="form-check-label" for="radio2"></label>
+          </div>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="radio4" name="optradio" value="4">{{ quizs[currentQuestion].answers.toString().split(',')[3]}}
+              <label class="form-check-label" for="radio2"></label>
+            </div>
+          </div>
+    
+      <div class="action-button">
+      <button [disabled]="currentQuestion===4" type="button" class="btn btn-primary" id="next" (click)="nextQuestion()">Next</button>
+      <button [disabled]="currentQuestion===0" type="button" class="btn btn-primary " id="Previous" (click)="previousQuestion()">Previous</button>
+      <button type="submit" class="btn btn-success btn-aln-right" id="submit"  (click)="submitQuiz()">Submit</button>
+      </div>
+      
+      <br>
+      <br>
+  
+  
+    
+  
